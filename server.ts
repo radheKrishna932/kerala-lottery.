@@ -109,7 +109,7 @@ async function initDatabase() {
       waitForConnections: true,
       connectionLimit: 10,
       queueLimit: 0,
-      connectTimeout: 4000 // 4 seconds timeout
+      connectTimeout: 20000 // 20 seconds timeout
     });
 
     // Test the connection
@@ -120,11 +120,15 @@ async function initDatabase() {
     // Set up tables if they don't exist
     await runDbMigrations();
     isUsingFallbackDB = false;
-  } catch (error: any) {
-    console.log("Notice: Local or remote MySQL database could not be reached. Activating secure JSON flat-file storage service.");
+      } catch (error: any) {
+    console.error("MySQL Error Details:", error);
+    console.log("Notice: Local or remote MySQL database could not be reached. Activating secure JSON flat-file storage version.");
     dbPool = null;
     isUsingFallbackDB = true;
     readFallbackDB();
+  }
+  
+    
   }
 }
 
