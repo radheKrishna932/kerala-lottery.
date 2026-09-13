@@ -127,7 +127,7 @@ async function initDatabase() {
     isUsingFallbackDB = true;
     readFallbackDB();
   }
-
+}
     
   
   
