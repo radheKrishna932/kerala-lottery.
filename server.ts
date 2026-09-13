@@ -127,10 +127,13 @@ async function initDatabase() {
     isUsingFallbackDB = true;
     readFallbackDB();
   }
+
+    
+  
   
     
-  }
-}
+  
+
 
 // Running basic table bootstrap migration script
 async function runDbMigrations() {
