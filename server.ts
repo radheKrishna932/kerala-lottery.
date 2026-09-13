@@ -109,6 +109,9 @@ async function initDatabase() {
       waitForConnections: true,
       connectionLimit: 10,
       queueLimit: 0,
+      ,  ssl: {
+rejectUnauthorized: false
+      },
       connectTimeout: 20000 // 20 seconds timeout
     });
 
